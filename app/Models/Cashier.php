@@ -10,7 +10,7 @@ class Cashier extends Model
     use HasFactory;
 
     protected $guard = 'cashier';
-    protected $fillable = ['name', 'password', 'image', 'email', 'phone'];
+    protected $fillable = ['name', 'password', 'image', 'email', 'phone','c_number'];
 
     public function orders()
     {

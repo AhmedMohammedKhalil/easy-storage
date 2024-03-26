@@ -1,27 +1,34 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Cashier;
 
-use App\Models\Admin;
+use App\Models\Cashier;
+use Livewire\Component;
+use App\Helper\ImageStore;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use App\Helper\ImageStore;
-use Livewire\Component;
 
 class Settings extends Component
 {
     use WithFileUploads;
-    public $name='', $email='',$c_number, $image,$admin_id='';
+    public $name='', $email='', $image, $phone='', $c_number='',$cashier_id='',$cashier;
 
 
     public function mount() {
-        $this->admin_id = Auth::guard('admin')->user()->id;
-        $this->name = Auth::guard('admin')->user()->name;
-        $this->email = Auth::guard('admin')->user()->email;
-        $this->c_number = Auth::guard('admin')->user()->c_number;
+        $this->cashier_id = Auth::guard('cashier')->user()->id;
+        $this->name = Auth::guard('cashier')->user()->name;
+        $this->email = Auth::guard('cashier')->user()->email;
+        $this->phone = Auth::guard('cashier')->user()->phone;
+        $this->c_number = Auth::guard('cashier')->user()->c_number;
+        $this->cashier = Cashier::whereId($this->cashier_id)->first();
 
     }
+
+    protected $rules = [
+        'name' => ['required', 'string', 'max:50'],
+        'phone' => ['required', 'string','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
+    ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
@@ -41,37 +48,36 @@ class Settings extends Component
 
     ];
 
-    protected $rules = [
-        'name' => ['required', 'string', 'max:50'],
-    ];
-
     public function updatedImage()
     {
-            $validatedata = $this->validate(
-                ['image' => ['image','mimes:jpeg,jpg,png','max:2048']]
-            );
+        $validatedata = $this->validate(
+            ['image' => ['image', 'mimes:jpeg,jpg,png', 'max:2048']]
+        );
     }
 
-    public function edit() {
+    public function edit()
+    {
         $validatedata = $this->validate(
             array_merge(
                 $this->rules,[
-                'email'   => ['required','email',"unique:admins,email,".$this->admin_id],
-                'c_number' => ['required', 'string','min:12','regex:/^([0-9\s\-\+\(\)]*)$/','max:12','unique:admins,c_number,'.$this->admin_id],
+                'email'   => ['required','email',"unique:cashiers,email,".$this->cashier_id],
+                'c_number' => ['required', 'string','min:12','regex:/^([0-9\s\-\+\(\)]*)$/','max:12','unique:cashiers,c_number,'.$this->cashier_id],
         ]));
-        if(!$this->image)
-            Admin::whereId($this->admin_id)->update($validatedata);
-        if($this->image) {
-            $imagename = $this->image->getClientOriginalName();
-            Admin::whereId($this->admin_id)->update(array_merge($validatedata,['image' => $imagename]));
-            ImageStore::store('img/admins/'.$this->admin_id,$this->image,$imagename);
-        }
-        session()->flash('message', "Your Profile Updated.");
-        return redirect()->route('admin.profile');
-    }
 
+        if (!$this->image)
+            $this->cashier->update($validatedata);
+        if ($this->image) {
+            $this->updatedImage();
+            $imagename = $this->image->getClientOriginalName();
+            $this->cashier->update(array_merge($validatedata, ['image' => $imagename]));
+            ImageStore::store('img/cashiers/' . $this->cashier_id,$this->image,$imagename);
+
+        }
+        session()->flash('message', "تم إتمام العملية بنجاح");
+        return redirect()->route('cashier.profile');
+    }
     public function render()
     {
-        return view('livewire.admin.settings');
+        return view('livewire.cashier.settings');
     }
 }

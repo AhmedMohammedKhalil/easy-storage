@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class CashierController extends Controller
 {
 
+
+    public function index() {
+        $cashiers = Cashier::all();
+        return view('admins.cashiers.index',compact('cashiers'));
+    }
+
     public function showLoginForm() {
         return view('cashiers.login');
     }
@@ -16,18 +22,20 @@ class CashierController extends Controller
         return view('cashiers.profile',['page_name' => 'البروفايل']);
     }
 
-    public function showRegisterForm() {
-        return view('cashiers.register');
+    public function create() {
+        return view('admins.cashiers.create');
     }
 
+
+
     public function edit(Request $request) {
-        return view('cashiers.edit',['cashier_id' => $request->id]);
+        return view('admins.cashiers.edit',['cashier_id' => $request->id]);
     }
 
 
     public function delete(Request $request) {
         Cashier::whereId($request->id)->delete();
-        return redirect()->route('cashier.index');
+        return redirect()->route('admin.cashier.index');
     }
 
 

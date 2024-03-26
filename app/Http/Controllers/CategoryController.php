@@ -10,23 +10,23 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index', compact('categories'));
+        return view('admins.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('categories.create');
+        return view('admins.categories.create');
     }
 
 
     public function edit(Request $request)
     {
-        return view('categories.create',['category_id' => $request->id]);
+        return view('admins.categories.edit',['category_id' => $request->id]);
     }
 
     public function delete(Request $request) {
         Category::whereId($request->id)->delete();
-        return redirect()->route('category.index');
+        return redirect()->route('admin.category.index');
     }
 
 }

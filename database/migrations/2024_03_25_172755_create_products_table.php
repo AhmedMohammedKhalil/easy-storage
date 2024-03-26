@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->decimal('price', 8, 2);
             $table->string('code')->unique();
-            $table->boolean('available')->default(true);
             $table->integer('quantity')->default(0);
             $table->integer('quantity_sold')->default(0);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

@@ -10,22 +10,22 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('admins.products.index', compact('products'));
     }
 
     public function create()
     {
-        return view('products.create');
+        return view('admins.products.create');
     }
 
 
     public function edit(Request $request)
     {
-        return view('products.create',['product_id' => $request->id]);
+        return view('admins.products.edit',['product_id' => $request->id]);
     }
 
     public function delete(Request $request) {
         Product::whereId($request->id)->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('admin.product.index');
     }
 }

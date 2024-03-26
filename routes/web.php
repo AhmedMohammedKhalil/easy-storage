@@ -15,11 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::middleware(['guest:admin', 'guest:company', 'guest:user'])->group(function () {
+
+Route::middleware(['guest:admin', 'guest:cashier'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
-    Route::get('/company/login', 'CompanyController@showLoginForm')->name('company.login');
-    Route::get('/user/login', 'UserController@showLoginForm')->name('user.login');
-    Route::get('/user/register', 'UserController@showRegisterForm')->name('user.register');
+    Route::get('/cashier/login', 'CashierController@showLoginForm')->name('cashier.login');
 });
 
 
@@ -29,20 +28,57 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/settings', 'AdminController@settings')->name('settings');
     Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
+
+
+    Route::prefix('/contact')->name('contact.')->group(function () {
+        Route::get('/index', 'ContactController@index')->name('index');
+    });
+
+
+    Route::prefix('/about')->name('about.')->group(function () {
+        Route::get('/index', 'AboutController@index')->name('index');
+        Route::get('/edit', 'AboutController@edit')->name('edit');
+
+    });
+
+
+    Route::prefix('/slider')->name('slider.')->group(function () {
+        Route::get('/index', 'SliderController@index')->name('index');
+        Route::get('/edit', 'SliderController@edit')->name('edit');
+    });
+
+
+    Route::prefix('/cashier')->name('cashier.')->group(function () {
+        Route::get('/index', 'CashierController@index')->name('index');
+        Route::get('/create', 'CashierController@create')->name('create');
+        Route::get('/edit', 'CashierController@edit')->name('edit');
+    });
+
+    Route::prefix('/category')->name('category.')->group(function () {
+        Route::get('/index', 'CategoryController@index')->name('index');
+        Route::get('/create', 'CategoryController@create')->name('create');
+        Route::get('/edit', 'CategoryController@edit')->name('edit');
+    });
+
+
+    Route::prefix('/product')->name('product.')->group(function () {
+        Route::get('/index', 'ProductController@index')->name('index');
+        Route::get('/create', 'ProductController@create')->name('create');
+        Route::get('/edit', 'ProductController@edit')->name('edit');
+    });
+
+
+
 });
 
-Route::middleware(['auth:company'])->name('company.')->prefix('company')->group(function () {
-    Route::get('/dashboard', 'CompanyController@dashboard')->name('dashboard');
-    Route::get('/profile', 'CompanyController@profile')->name('profile');
-    Route::get('/settings', 'CompanyController@settings')->name('settings');
-    Route::get('/changePassword', 'CompanyController@changePassword')->name('changePassword');
-    Route::get('/logout', 'CompanyController@logout')->name('logout');
-});
 
 
-Route::middleware(['auth:user'])->name('user.')->prefix('user')->group(function () {
-    Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/settings', 'UserController@settings')->name('settings');
-    Route::get('/changePassword', 'UserController@changePassword')->name('changePassword');
-    Route::get('/logout', 'UserController@logout')->name('logout');
+
+Route::middleware(['auth:cashier'])->name('cashier.')->prefix('cashier')->group(function () {
+    Route::get('/profile', 'CashierController@profile')->name('profile');
+    Route::get('/settings', 'CashierController@settings')->name('settings');
+    Route::get('/changePassword', 'CashierController@changePassword')->name('changePassword');
+    Route::get('/logout', 'CashierController@logout')->name('logout');
+
+
 });
