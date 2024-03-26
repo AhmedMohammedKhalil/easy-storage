@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone', 8);
-            $table->string('photo')->nullable();
-            $table->text('address');
-            $table->string('owner');
+            $table->decimal('total_price', 8, 2);
+            $table->boolean('open')->default(true);
+            $table->timestamp('added_at')->useCurrent();
+            $table->unsignedInteger('cashier_id');
+            $table->foreign('cashier_id')->references('id')->on('cashiers')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('orders');
     }
 };

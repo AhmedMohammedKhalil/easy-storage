@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cashier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,8 @@ class AdminController extends Controller
     public function dashboard() {
 
         $page_name = 'الإحصائيات';
-        $user_count = User::all()->count();
-        return view('admins.dashboard',compact('page_name','user_count'));
+        $cashier_count = Cashier::all()->count();
+        return view('admins.dashboard',compact('page_name','cashier_count'));
     }
 
     public function profile() {

@@ -40,13 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        'user' => [
+        'cashier' => [
             'driver' => 'session',
-            'provider' => 'users',
-        ],
-        'company' => [
-            'driver' => 'session',
-            'provider' => 'companies',
+            'provider' => 'cashiers',
         ],
         'admin' => [
             'driver' => 'session',
@@ -74,14 +70,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'cashiers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Cashier::class,
         ],
-        'companies' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Company::class,
-        ],
+
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
