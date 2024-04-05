@@ -57,6 +57,7 @@ class Edit extends Component
         if(!$this->image) {
             $this->slider->update($validatedData);
         }
+
         $path = '/images/sliders/';
         $dir = public_path('assets'.$path);
         if($this->image) {

@@ -10,7 +10,7 @@ use App\Helper\ImageStore;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
 
-class AddProduct extends Component
+class Add extends Component
 {
     use WithFileUploads;
     public $name,$price,$category_id,$image,$code,$quantity,$categories;

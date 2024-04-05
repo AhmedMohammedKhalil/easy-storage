@@ -56,6 +56,7 @@ return [
 
     'asset_url' => 'http://localhost/easy-storage/public',
 
+
     /*
     |--------------------------------------------------------------------------
     | Livewire App URL

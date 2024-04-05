@@ -48,8 +48,8 @@ class Edit extends Component
         if(!$this->image) {
             $this->about->update($validatedData);
         }
-        $path = '/images/abouts/';
-        $dir = public_path('assets'.$path);
+        $path = '/data/abouts/';
+        $dir = public_path('assets/images/data/'.$path);
         if($this->image) {
             $this->updatedImage();
             $imagename = $this->image->getClientOriginalName();
@@ -63,7 +63,7 @@ class Edit extends Component
             $this->image->storeAs($path,$imagename);
         }
 
-        File::deleteDirectory(public_path('assets/livewire-tmp'));
+        File::deleteDirectory(public_path('assets/data/livewire-tmp'));
         session()->flash('message', "تم إتمام العملية بنجاح");
         return redirect()->route('admin.about.index');
     }
