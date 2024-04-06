@@ -1,4 +1,5 @@
-<form wire:submit.prevent='add'>
+<form wire:submit.prevent='add' class="row flex-column align-items-center">
+    <div class="col-lg-6 col-md-12">
     <div class="form-row mb-3">
         <div class="from-group col-md-12 ">
             <div class="input-group ">
@@ -67,5 +68,6 @@
 
     <div class="col-12 col-sm-12 Login-btn d-flex justify-content-center">
         <button class="btn btn-secondary">إضافة</button>
+    </div>
     </div>
 </form>

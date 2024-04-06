@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\File;
 class Edit extends Component
 {
     use WithFileUploads;
-    public $product,$name,$price,$category_id,$image,$quantity,$categories;
+    public $product,$name,$price,$category_id,$image,$quantity,$details,$categories;
 
 
 
@@ -24,7 +24,7 @@ class Edit extends Component
         $this->price = $this->product->price;
         $this->category_id = $this->product->category_id;
         $this->quantity = $this->product->quantity;
-
+        $this->details = $this->product->details;
 
     }
     protected $rules = [
@@ -32,13 +32,15 @@ class Edit extends Component
         'price' => ['required', 'numeric', 'gt:0'],
         'category_id' => ['required','gt:0'],
         'quantity' => ['required','numeric'],
+        'details' => ['required','string'],
+
     ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
-        'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
+        'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 100 خانة',
         'owner.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
         'unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
@@ -70,7 +72,7 @@ class Edit extends Component
             $this->updatedImage();
             $imagename = $this->image->getClientOriginalName();
             $this->product->update(array_merge($validatedata, ['image' => $imagename]));
-            ImageStore::store('img/products/' . $this->product->id,$this->image,$imagename);
+            ImageStore::store('assets/images/data/products/' . $this->product->id,$this->image,$imagename);
 
         }
 

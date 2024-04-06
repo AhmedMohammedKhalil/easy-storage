@@ -235,6 +235,7 @@
     </div>
     <div class="mobile-overlay"></div>
     <a href="#" class="btn-secondary " id="back-to-top" title="Back to top">&uarr;</a>
+    <div class="notifications" id="notificationCart" style="z-index: 999999">تم إضافة المنتج فى عرية المشتريات</div>
 
 
 

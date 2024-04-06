@@ -4,6 +4,8 @@
 @endpush
 @section('section')
 <div class="blog_ blog-4">
+    <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> البيانات الشخصية </h2>
+
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="blog">

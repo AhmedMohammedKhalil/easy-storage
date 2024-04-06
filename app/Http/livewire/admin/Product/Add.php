@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\File;
 class Add extends Component
 {
     use WithFileUploads;
-    public $name,$price,$category_id,$image,$code,$quantity,$categories;
+    public $name,$price,$category_id,$image,$code,$quantity,$details,$categories;
 
 
 
@@ -23,17 +23,18 @@ class Add extends Component
         'category_id' => ['required','gt:0'],
         'code' => ['required'],
         'quantity' => ['required','numeric','gt:0'],
+        'details' => ['required','string'],
     ];
 
     protected $messages = [
         'required' => 'ممنوع ترك الحقل فارغاَ',
         'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
         'email' => 'هذا الإيميل غير صحيح',
-        'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
+        'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 100 خانة',
         'owner.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
         'unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
-        'image' => 'لابد ان يكون المف صورة',
+        'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
         'regex' => 'لا بد ان يكون الحقل ارقام فقط',
@@ -54,17 +55,15 @@ class Add extends Component
 
     public function add(){
 
-        $this->code = time();
         $validatedata = $this->validate();
         if(!$this->image ) {
             $this->updatedImage();
         }
-
         $imagename = $this->image->getClientOriginalName();
         $product = Product::create(array_merge($validatedata, [
             'image' => $imagename,
         ]));
-        ImageStore::store('img/products/' . $product->id,$this->image,$imagename);
+        ImageStore::store('assets/images/data/products/' . $product->id,$this->image,$imagename);
 
         session()->flash('message', "تم إضافة المنتج بنجاح");
         return redirect()->route('admin.product.index');

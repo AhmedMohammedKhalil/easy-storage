@@ -5,6 +5,8 @@
 @section('section')
 <section class="order-content">
     <div class="heading-title">
+        <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> تغيير البيانات الشخصية  </h2>
+
         @livewire('admin.settings')
     </div>
 </section>

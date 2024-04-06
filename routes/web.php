@@ -62,6 +62,8 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/index', 'CategoryController@index')->name('index');
         Route::get('/create', 'CategoryController@create')->name('create');
         Route::get('/edit', 'CategoryController@edit')->name('edit');
+        Route::get('/delete', 'CategoryController@delete')->name('delete');
+
     });
 
 
@@ -69,6 +71,8 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/index', 'ProductController@index')->name('index');
         Route::get('/create', 'ProductController@create')->name('create');
         Route::get('/edit', 'ProductController@edit')->name('edit');
+        Route::get('/delete', 'ProductController@delete')->name('delete');
+
     });
 
 

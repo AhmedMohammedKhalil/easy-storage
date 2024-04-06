@@ -12,6 +12,7 @@
 @endpush
 @section('section')
 <section class="order-content">
+    <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> إدارة السلايدر  </h2>
 
     @foreach ($sliders as $slider)
     <div class="accordian" style="margin-top: 20px">
