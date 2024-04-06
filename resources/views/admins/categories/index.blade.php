@@ -23,7 +23,7 @@
     <div class="accordian" style="margin-top: 20px">
         <table class="table top-table order-table">
             <tbody>
-                <tr class="d-flex">
+                <tr class="d-flex" style="margin-bottom: 0">
                     <td class="col-12 col-md-8">
                        <h2>{!! nl2br( $category->name ) !!}</h2>
                     </td>

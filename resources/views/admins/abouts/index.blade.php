@@ -21,9 +21,9 @@
                 <tr class="d-flex">
                     <td class="col-12 col-md-3 first-item">
                         @if($about->image)
-                            <img class="img-fluid" src="{!! asset('assets/images/data/abouts/'.$about->id.'/'.$about->image) !!}" alt="image">
+                            <img style="height:100px" class="img-fluid" src="{!! asset('assets/images/data/abouts/'.$about->id.'/'.$about->image) !!}" alt="image">
                         @else
-                            <img class="img-fluid" src="{!! asset('assets/images/img_option/img-1.jpg') !!}" alt="image">
+                            <img style="height:100px" class="img-fluid" src="{!! asset('assets/images/img_option/img-1.jpg') !!}" alt="image">
                         @endif
                     </td>
                     <td class="col-12 col-md-6">
