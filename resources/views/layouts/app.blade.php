@@ -26,6 +26,25 @@
         .header-mobile .header-maxi .navigation-mobile-container #navigation-mobile .main-manu {
             text-align: right !important;
         }
+
+        *{
+            font-family: "Shamel-Book" !important
+        }
+
+        .fa, .far, .fas {
+            font-family: "Font Awesome 5 Free" !important;
+        }
+
+        .checkout-area .checkoutd-nav .nav-pills .nav-link:hover {
+            border: 2px solid;
+            border-radius: 3px;
+            background-color: transparent;
+            color: var(--secondary);
+        }
+
+        .nav-link:hover{
+            color:  var(--secondary) !important
+        }
     </style>
     @livewireStyles
     @stack('css')
@@ -35,7 +54,7 @@
 
     <div class="wrapper" style="display: none;">
         <!-- //header style One-->
-        <header id="headerSeven" class="header-area header-seven header-desktop">
+        <header id="headerSeven" class="header-area header-seven header-desktop" style="font-weight: bolder">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-12 col-lg-5 d-flex justify-content-start">
@@ -43,95 +62,72 @@
                             <div class="navbar-collapse">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            Home
+                                        <a class="nav-link" href="{{ route('home') }}">
+                                            الرئيسية
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('aboutus') }}">
+                                            من نحن
+                                        </a>
+                                    </li>
+                                    @auth('cashier')
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('cashier.sale') }}">
+                                                نقطة بيع
+                                            </a>
+                                        </li>
+                                    @endauth
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div class="col-12 col-lg-2">
                         <div class="logo">
-                            <a href="index.html">
-                                <img class="img-fluid" src="images/logo/logo2.png" alt="logo here">
+                            <a href="{{ route('home') }}">
+                                <img style="height: 100px" class="img-fluid" src="{{ asset('assets/images/data/home/logo.png') }}" alt="logo here">
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-5 d-flex justify-content-end">
-                        <ul class="pro-header-right-options">
-                            <li class="dropdown profile-tags list-icon">
-                                <button class="btn icon dropdown-toggle" type="button" id="dropdownAccountButton42"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right"
-                                    aria-labelledby="dropdownAccountButton42">
-                                    <a class="dropdown-item" href="dashboard.html">Dashboard</a>
-                                    <a class="dropdown-item" href="wishlist.html">Wishlist&nbsp;(8)</a>
-                                    <a class="dropdown-item" href="compare.html">Compare&nbsp;(2)</a>
-                                    <a class="dropdown-item" href="#">Logout</a>
-
-                                </div>
-                            </li>
-                            <li class="list-icon">
-                                <a href="wishlist.html" class="btn icon">
-                                    <i class="far fa-heart"></i>
-                                    <span class="badge badge-secondary">0</span>
+                        @unless (auth('admin')->check() || auth('cashier')->check())
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cashier.login') }}">
+                                    تسجيل الدخول
                                 </a>
                             </li>
-
-                            <li class="dropdown list-icon">
-                                <button class="btn icon dropdown-toggle" type="button" id="dropdownCartButton16"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-shopping-bag"></i>
-                                    <span class="badge badge-secondary">2</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownCartButton16">
-                                    <ul class="shopping-cart-items">
-                                        <li>
-                                            <div class="item-thumb">
-
-                                                <div class="image">
-                                                    <img class="img-fluid"
-                                                        src="images/product_images/product_image_1.jpg"
-                                                        alt="Product Image">
-                                                </div>
-                                            </div>
-                                            <div class="item-detail">
-                                                <h3>Modern Single Sofa</h3>
-                                                <div class="item-s">1 x $45.00 <i class="fas fa-trash"></i></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="item-thumb">
-
-                                                <div class="image">
-                                                    <img class="img-fluid"
-                                                        src="images/product_images/product_image_3.jpg"
-                                                        alt="Product Image">
-                                                </div>
-                                            </div>
-                                            <div class="item-detail">
-                                                <h3>Modern Wood Chair</h3>
-                                                <span class="item-s">2 x $90.00 <i class="fas fa-trash"></i></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="item-summary">Total&nbsp;:&nbsp;<span>$145.00</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <a class="btn btn-link d-grid gap-2 " href="cart-page1.html">View Cart</a>
-                                            <a class="btn btn-secondary d-grid gap-2  "
-                                                href="checkout.html">Checkout</a>
-                                        </li>
-                                    </ul>
-
-
-                                </div>
-                            </li>
                         </ul>
+                        @endunless
+                        @if(auth('admin')->check() || auth('cashier')->check())
+                            <ul class="pro-header-right-options">
+                                <li class="dropdown profile-tags list-icon">
+                                    <button class="btn icon dropdown-toggle" type="button" id="dropdownAccountButton42"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h6 style="margin-bottom: 0;font-size: 0.875rem;font-weight:bolder">
+                                            @auth('admin')
+                                                {{ auth('admin')->user()->name }}
+                                            @else
+                                               {{ auth('cashier')->user()->name }}
+                                            @endauth
+                                        </h6>
+
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        aria-labelledby="dropdownAccountButton42">
+                                        @auth('admin')
+                                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">لوحة التحكم</a>
+                                            <a class="dropdown-item" href="{{ route('admin.logout') }}">خروج</a>
+                                        @endauth
+                                        @auth('cashier')
+                                        <a class="dropdown-item" href="{{ route('cashier.profile') }}">البروفايل</a>
+                                        <a class="dropdown-item" href="#">مشترياتى</a>
+                                        <a class="dropdown-item" href="{{ route('cashier.logout') }}">Logout</a>
+                                        @endauth
+                                    </div>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -144,7 +140,7 @@
                 <div class="container">
 
                     <div class="row align-items-center">
-                        <div class="col-6 pr-0 flex-col">
+                        <div class="col-8 pr-0 flex-col">
                             <div class="navigation-mobile-container">
                                 <a href="javascript:void(0)" class="navigation-mobile-toggler">
                                     <span class="fas fa-bars"></span>
@@ -152,93 +148,66 @@
                                 <nav id="navigation-mobile">
                                     <div class="logout-main">
                                         <div class="welcome">
-                                            <span>مرحباً</span>
+                                            @unless (auth('admin')->check() || auth('cashier')->check())
+                                                <span>مرحباً</span>
+                                            @endunless
+                                            @auth('cashier')
+                                                <span>مرحباً {{ auth('cashier')->user()->name }}</span>
+                                            @endauth
+                                            @auth('admin')
+                                                <span>مرحباً {{ auth('admin')->user()->name }}</span>
+                                            @endauth
                                         </div>
                                     </div>
 
-                                    <a class="main-manu btn" href="" >
+                                    <a class="main-manu btn" href="{{ route('home') }}" >
                                         الرئيسية
                                     </a>
-                                    <a href="dashboard.html" class="main-manu btn ">
-                                        لوحة التحكم
+                                    <a class="main-manu btn" href="{{ route('aboutus') }}" >
+                                        من نحن
                                     </a>
-                                    <a href="dashboard.html" class="main-manu btn ">
-                                        البروفايل
-                                    </a>
-                                    <a href="wishlist.html" class="main-manu btn">
-                                        Wishlist (8)
-                                    </a>
-                                    <a href="logiut.html" class="main-manu btn ">
-                                        Logout
-                                    </a>
+
+                                    @unless (auth('admin')->check() || auth('cashier')->check())
+                                        <a href="{{ route('cashier.login') }}" class="main-manu btn ">
+                                            تسجيل الدخول
+                                        </a>
+                                    @endunless
+
+                                    @auth('admin')
+                                        <a href="{{ route('admin.dashboard') }}" class="main-manu btn ">
+                                            لوحة التحكم
+                                        </a>
+                                        <a href="{{ route('admin.logout') }}" class="main-manu btn ">
+                                            خروج
+                                        </a>
+                                    @endauth
+
+
+                                    @auth('cashier')
+                                        <a class="main-manu btn" href="{{ route('cashier.sale') }}" >
+                                            نقطة بيع
+                                        </a>
+                                        <a href="{{ route('cashier.profile') }}" class="main-manu btn ">
+                                            البروفايل
+                                        </a>
+                                        <a href="wishlist.html" class="main-manu btn">
+                                            مشترياتى
+                                        </a>
+                                        <a href="{{ route('cashier.logout') }}" class="main-manu btn ">
+                                            خروج
+                                        </a>
+                                    @endauth
+
+
+
                                 </nav>
                             </div>
-                            <a href="index.html" class="logo">
-                                <img class="img-fluid" src="images/logo/logo2.png" alt="logo here">
-                            </a>
+
                         </div>
-                        <div class="col-6 pl-0">
-                            <ul class="pro-header-right-options">
-
-                                <li>
-                                    <a href="wishlist.html" class="btn btn-light">
-                                        <i class="far fa-heart"></i>
-                                        <span class="badge badge-secondary">0</span>
-                                    </a>
-                                </li>
-
-                                <li class="dropdown">
-                                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownCartButton2"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-shopping-bag"></i>
-                                        <span class="badge badge-secondary">2</span>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownCartButton2">
-                                        <ul class="shopping-cart-items">
-                                            <li>
-                                                <div class="item-thumb">
-
-                                                    <div class="image">
-                                                        <img class="img-fluid"
-                                                            src="images/product_images/product_image_1.jpg"
-                                                            alt="Product Image">
-                                                    </div>
-                                                </div>
-                                                <div class="item-detail">
-                                                    <h3>Modern Single Sofa</h3>
-                                                    <div class="item-s">1 x $45.00 <i class="fas fa-trash"></i></div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item-thumb">
-
-                                                    <div class="image">
-                                                        <img class="img-fluid"
-                                                            src="images/product_images/product_image_2.jpg"
-                                                            alt="Product Image">
-                                                    </div>
-                                                </div>
-                                                <div class="item-detail">
-                                                    <h3>Modern Wood Chair</h3>
-                                                    <span class="item-s">2 x $90.00 <i class="fas fa-trash"></i></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span class="item-summary">Total&nbsp;:&nbsp;<span>$145.00</span>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="btn btn-link d-grid gap-2 " href="cart-page1.html">View
-                                                    Cart</a>
-                                                <a class="btn btn-secondary d-grid gap-2  "
-                                                    href="checkout.html">Checkout</a>
-                                            </li>
-                                        </ul>
-
-
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="col-4 pr-0 flex-col justify-content-end">
+                            <a href="{{ route('home') }}" class="logo">
+                                <img style="height:50px" class="img-fluid" src="{{ asset('assets/images/data/home/logo.png') }}" alt="logo here">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -246,14 +215,15 @@
         </header>
 
 
-        <div class="container-fluid copyright-main p-0">
+        @yield('content')
+
+        <div class="container-fluid copyright-main p-0" style="margin-top: 50px">
             <div class="copyright-content">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <div class="footer-info text-center">
-                                ©&nbsp;2023 Company, Inc. <a href="privacy.html">Privacy</a>&nbsp;•&nbsp;<a
-                                    href="term.html">Terms</a>
+                                ©&nbsp;جميع الحقوق محفوظة لموقع <span dir="ltr">2024 @ <a href="{{ route('home') }}">Easy Storage</a></span>
                             </div>
 
                         </div>

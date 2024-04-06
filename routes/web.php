@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+
 
 Route::middleware(['guest:admin', 'guest:cashier'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
@@ -52,6 +54,8 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/index', 'CashierController@index')->name('index');
         Route::get('/create', 'CashierController@create')->name('create');
         Route::get('/edit', 'CashierController@edit')->name('edit');
+        Route::get('/delete', 'CashierController@delete')->name('delete');
+
     });
 
     Route::prefix('/category')->name('category.')->group(function () {
@@ -80,5 +84,6 @@ Route::middleware(['auth:cashier'])->name('cashier.')->prefix('cashier')->group(
     Route::get('/changePassword', 'CashierController@changePassword')->name('changePassword');
     Route::get('/logout', 'CashierController@logout')->name('logout');
 
+    Route::get('/sale', 'HomeController@sale')->name('sale');
 
 });

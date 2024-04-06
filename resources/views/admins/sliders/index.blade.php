@@ -1,0 +1,46 @@
+@extends('admins.layout')
+
+@push('css')
+    <style>
+        .accordian h2{
+            margin-bottom: 0
+        }
+    </style>
+@endpush
+@push('header')
+@include('layouts.header',['title'=>'إدارة السلايدرز'])
+@endpush
+@section('section')
+<section class="order-content">
+
+    @foreach ($sliders as $slider)
+    <div class="accordian" style="margin-top: 20px">
+        <table class="table top-table order-table">
+            <tbody>
+                <tr class="d-flex">
+                    <td class="col-12 col-md-3 first-item">
+                        @if($slider->image)
+                            <img class="img-fluid" src="{!! asset('assets/images/data/sliders/'.$slider->id.'/'.$slider->image) !!}" alt="image">
+                        @else
+                            <img class="img-fluid" src="{!! asset('assets/images/img_option/img-1.jpg') !!}" alt="image">
+                        @endif
+                    </td>
+                    <td class="col-12 col-md-2">
+                        <h2>{!! nl2br( $slider->title ) !!}</h2>
+                     </td>
+                    <td class="col-12 col-md-4">
+                       <h2>{!! nl2br( $slider->content ) !!}</h2>
+                    </td>
+                    <td class="col-12 col-md-3 justify-content-around">
+                        <a href="{{ route('admin.slider.edit',['id'=>$slider->id]) }}" style="padding:0 10px">
+                            <i class="fas fa-pen-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @endforeach
+
+</section>
+@endsection

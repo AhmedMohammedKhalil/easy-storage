@@ -15,7 +15,7 @@ class ImageStore{
                 File::deleteDirectories($dir);
             else
                 mkdir($dir);
-            $image->storeAs($dir,$image_name);
+            $image->storeAs($distination,$image_name);
             File::deleteDirectory(public_path('livewire-tmp'));
     }
 

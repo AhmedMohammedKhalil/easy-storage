@@ -86,7 +86,7 @@ class Edit extends Component
             $this->updatedImage();
             $imagename = $this->image->getClientOriginalName();
             $this->cashier->update(array_merge($validatedata, ['image' => $imagename]));
-            ImageStore::store('img/cashiers/' . $this->cashier->id,$this->image,$imagename);
+            ImageStore::store('assets/images/data/cashiers/' .  $this->cashier->id,$this->image,$imagename);
 
         }
         session()->flash('message', "تم إتمام العملية بنجاح");

@@ -2,14 +2,18 @@
 
 namespace App\Http\Livewire\Admin\Cashier;
 
-use App\Helper\ImageStore;
 use App\Models\cashier;
+use Livewire\Component;
+use App\Helper\ImageStore;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
 
 class Add extends Component
 {
+
+    use WithFileUploads;
+
     public $name, $email, $password, $confirm_password, $image, $phone, $c_number;
 
 
@@ -58,7 +62,7 @@ class Add extends Component
             'image' => $imagename,
             'password' => Hash::make($this->password)
         ]));
-        ImageStore::store('img/cashiers/' . $cashier->id,$this->image,$imagename);
+        ImageStore::store('assets/images/data/cashiers/' . $cashier->id,$this->image,$imagename);
 
         session()->flash('message', "تم إتمام العملية بنجاح");
         return redirect()->route('admin.cashier.index');

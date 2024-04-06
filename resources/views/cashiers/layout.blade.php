@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <div>{{ $page_name }}</div>
-    <div>
-        @include('users.menu')
-        @yield('section')
+    <div style="min-height:800px">
+        @stack('header')
+        <div>
+            @include('cashiers.menu')
+            @yield('section')
+        </div>
     </div>
+
 @endsection

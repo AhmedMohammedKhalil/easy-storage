@@ -17,4 +17,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    public function aboutus()
+    {
+        return view('home');
+    }
+
+
+    public function sale()
+    {
+        return view('home');
+    }
 }

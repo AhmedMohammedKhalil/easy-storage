@@ -15,21 +15,20 @@ class AdminController extends Controller
 
     public function dashboard() {
 
-        $page_name = 'الإحصائيات';
         $cashier_count = Cashier::all()->count();
-        return view('admins.dashboard',compact('page_name','cashier_count'));
+        return view('admins.dashboard',compact('cashier_count'));
     }
 
     public function profile() {
-        return view('admins.profile',['page_name' => 'البروفايل']);
+        return view('admins.profile');
     }
 
     public function settings() {
-        return view('admins.settings',['page_name' => 'الإعدادات']);
+        return view('admins.settings');
     }
 
     public function changePassword() {
-        return view('admins.changePassword',['page_name' => 'تغيير كلمة السر']);
+        return view('admins.changePassword');
     }
 
     public function logout(Request $request) {
@@ -37,4 +36,5 @@ class AdminController extends Controller
         $request->session()->invalidate();
         return redirect()->route('home');
     }
+
 }

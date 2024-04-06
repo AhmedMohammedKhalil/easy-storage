@@ -12457,12 +12457,12 @@ fieldset:disabled .btn {
 
 :root {
     --primary: #131313;
-    --secondary: #fe4536;
+    --secondary: #40299a;
     --dark: #343a40;
     --light: #e9ecef;
     --primary-dark: rgba(19, 19, 19, 0.85);
     --primary-darkest: rgba(19, 19, 19, 0.3);
-    --secondary-dark: rgba(var(#fe4536), 0.85);
+    --secondary-dark: rgba(var(#40299a), 0.85);
     --secondary-darkest: #ffd2ce;
     --artical-background-success: #28a745;
     --artical-background-success-dark: rgba(40, 167, 69, 0.85);

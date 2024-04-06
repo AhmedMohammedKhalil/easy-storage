@@ -64,7 +64,7 @@ class Settings extends Component
         if($this->image) {
             $imagename = $this->image->getClientOriginalName();
             Admin::whereId($this->admin_id)->update(array_merge($validatedata,['image' => $imagename]));
-            ImageStore::store('img/admins/'.$this->admin_id,$this->image,$imagename);
+            ImageStore::store('assets/images/data/admins/'.$this->admin_id,$this->image,$imagename);
         }
         session()->flash('message', "Your Profile Updated.");
         return redirect()->route('admin.profile');
