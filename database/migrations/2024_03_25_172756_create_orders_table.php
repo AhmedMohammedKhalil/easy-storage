@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('total_price', 8, 2);
-            $table->boolean('open')->default(true);
-            $table->timestamp('added_at')->useCurrent();
+            $table->boolean('status');
+            $table->timestamp('added_at')->nullable();
             $table->unsignedInteger('cashier_id');
             $table->foreign('cashier_id')->references('id')->on('cashiers')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

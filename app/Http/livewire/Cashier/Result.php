@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cashier;
 
 use App\Models\College;
 use App\Models\Product;
@@ -8,12 +8,18 @@ use Livewire\Component;
 
 class Result extends Component
 {
-    public $results;
+    public $products;
     public $flag = false;
 
     protected $listeners = [
         'showResults',
+        'refresh'=>'makeRefresh'
     ];
+
+    public function makeRefresh() {
+        $this->emit('refreshProduct');
+        $this->emit('$refresh');
+    }
 
 
     public function showResults($results) {
@@ -23,16 +29,16 @@ class Result extends Component
             foreach($results as $result) {
                 $ids[] = $result['id'];
             }
-            $this->results = Product::find($ids);
+            $this->products = Product::find($ids);
         } else {
-            $this->results = '';
+            $this->products = '';
         }
 
     }
 
     public function render()
     {
-        $this->results = $this->flag == true ? $this->results : Product::all();
-        return view('livewire.results');
+        $this->products = $this->flag == true ? $this->products : Product::all();
+        return view('livewire.cashier.results');
     }
 }

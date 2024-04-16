@@ -30,10 +30,18 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/settings', 'AdminController@settings')->name('settings');
     Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
+    Route::get('/orders', 'OrderController@adminOrders')->name('orders');
 
 
     Route::prefix('/contact')->name('contact.')->group(function () {
         Route::get('/index', 'ContactController@index')->name('index');
+    });
+
+    Route::prefix('gallary')->name('gallary.')->group(function () {
+        Route::get('/', 'GallaryController@index')->name('index');
+        Route::get('/create', 'GallaryController@create')->name('create');
+        Route::get('/edit', 'GallaryController@edit')->name('edit');
+        Route::get('/delete', 'GallaryController@destroy')->name('delete');
     });
 
 
@@ -89,5 +97,9 @@ Route::middleware(['auth:cashier'])->name('cashier.')->prefix('cashier')->group(
     Route::get('/logout', 'CashierController@logout')->name('logout');
 
     Route::get('/sale', 'HomeController@sale')->name('sale');
+    Route::get('/orders', 'OrderController@cashierOrders')->name('orders');
+    Route::get('/purchases', 'OrderController@getPurchases')->name('purchases');
+    Route::get('/purchases-delete', 'OrderController@deleteItem')->name('purchases-delete');
+
 
 });

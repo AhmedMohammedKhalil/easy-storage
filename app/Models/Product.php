@@ -13,8 +13,20 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Product::class,'order_products')->using(OrderProduct::class)->withPivotValue('quantity','total')->withTimestamps();
+        return $this->belongsToMany(Order::class,'order_products','product_id')->using(OrderProduct::class)->withPivot('id','price','quantity','total')->withTimestamps();
     }
+
+
+    public function scopeProductQty() {
+        $orders = $this->orders()->where('status',1)->get();
+        $total = 0 ;
+        foreach($orders as $order) {
+            $total += $order->pivot->quantity;
+        }
+        return $total;
+    }
+
+
     public function category()
     {
         return $this->belongsTo(Category::class);

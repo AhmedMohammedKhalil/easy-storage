@@ -1,4 +1,13 @@
-@extends('users.layout')
+@extends('cashiers.layout')
+@push('header')
+@include('layouts.header',['title'=>'تغيير كلمة السر'])
+@endpush
 @section('section')
-    <livewire:user.change-password />
+<section class="order-content">
+    <div class="heading-title">
+        <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> تغيير كلمة السر  </h2>
+
+        @livewire('cashier.change-password')
+    </div>
+</section>
 @endsection

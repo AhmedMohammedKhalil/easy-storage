@@ -9,11 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['total_price', 'added_at','cashier_id','open'];
+    protected $fillable = ['total_price', 'added_at','cashier_id','status'];
 
     public function products()
     {
-        return $this->belongsToMany(Product::class,'order_products')->using(OrderProduct::class)->withPivotValue('quantity','total')->withTimestamps();
+        return $this->belongsToMany(Product::class,'order_products','order_id')->using(OrderProduct::class)->withPivot('id','price','quantity','total')->withTimestamps();
     }
 
     public function cashier()
@@ -25,4 +25,5 @@ class Order extends Model
     public function items() {
         return $this->hasMany(OrderProduct::class);
     }
+
 }

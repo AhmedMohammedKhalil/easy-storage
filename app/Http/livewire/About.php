@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Contact;
 use Livewire\Component;
 
-class AddContact extends Component
+class About extends Component
 {
     public $name,$email,$message;
 
@@ -30,6 +30,6 @@ class AddContact extends Component
     }
     public function render()
     {
-        return view('livewire.add-contact');
+        return view('livewire.about');
     }
 }

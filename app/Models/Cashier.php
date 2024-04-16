@@ -14,6 +14,16 @@ class Cashier extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class,'cashier_id');
     }
+
+    public function openOrder() {
+        return $this->orders()->where('status',true);
+    }
+
+
+    public function closeOrders() {
+        return $this->orders()->where('status',false);
+    }
+
 }

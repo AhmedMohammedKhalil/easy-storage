@@ -45,6 +45,35 @@
         .nav-link:hover{
             color:  var(--secondary) !important
         }
+
+        .tp-parallax-wrap, .tp-loop-wrap, .tp-mask-wrap {
+            position: relative !important;
+        }
+
+        .tp-bgimg{
+            height: 800px !important;
+        }
+
+        .tp-parallax-wrap{
+            left: 0 !important;
+            top: 80px !important;
+            margin: auto;
+            width: fit-content;
+            text-align: center
+        }
+
+        .tp-caption {
+            width: fit-content !important;
+            min-width: unset !important;
+            text-align: center !important
+        }
+
+        .bodyrtl .rev_slider_wrapper .tp-parallax-wrap {
+            direction: rtl;
+        }
+        .tp-caption.BigBold-Title, .BigBold-Title{
+            text-align: center !important
+        }
     </style>
     @livewireStyles
     @stack('css')
@@ -121,8 +150,8 @@
                                         @endauth
                                         @auth('cashier')
                                         <a class="dropdown-item" href="{{ route('cashier.profile') }}">البروفايل</a>
-                                        <a class="dropdown-item" href="#">مشترياتى</a>
-                                        <a class="dropdown-item" href="{{ route('cashier.logout') }}">Logout</a>
+                                        <a class="dropdown-item" href="{{ route('cashier.purchases') }}">مشترياتى</a>
+                                        <a class="dropdown-item" href="{{ route('cashier.logout') }}">خروج</a>
                                         @endauth
                                     </div>
                                 </li>
@@ -190,7 +219,7 @@
                                         <a href="{{ route('cashier.profile') }}" class="main-manu btn ">
                                             البروفايل
                                         </a>
-                                        <a href="wishlist.html" class="main-manu btn">
+                                        <a href="{{ route('cashier.purchases') }}" class="main-manu btn">
                                             مشترياتى
                                         </a>
                                         <a href="{{ route('cashier.logout') }}" class="main-manu btn ">

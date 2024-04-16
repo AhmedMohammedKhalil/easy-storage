@@ -19,7 +19,7 @@ class CashierController extends Controller
         return view('cashiers.login');
     }
     public function profile() {
-        return view('cashiers.profile',['page_name' => 'البروفايل']);
+        return view('cashiers.profile');
     }
 
     public function create() {
@@ -40,11 +40,11 @@ class CashierController extends Controller
 
 
     public function settings() {
-        return view('cashiers.settings',['page_name' => 'الإعدادات']);
+        return view('cashiers.settings');
     }
 
     public function changePassword() {
-        return view('cashiers.changePassword',['page_name' => 'تغيير كلمة السر']);
+        return view('cashiers.changePassword');
     }
 
 

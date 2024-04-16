@@ -17106,9 +17106,9 @@ jQuery('a[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
 
 
             thisCarousel.slick({
-                dots: true,
+                // dots: true,
                 arrows: false,
-                infinite: false,
+                infinite: true,
                 //rtl:true,
                 speed: 300,
                 slidesToShow: item || 3,

@@ -12,9 +12,9 @@
                 <div class="blog-thumb">
 
                     @if(auth('admin')->user()->image)
-                            <img class="img-fluid" src="{!! asset('assets/images/data/admins/'.auth('admin')->user()->id.'/'.auth('admin')->user()->image) !!}" alt="image">
+                            <img style="height: 500px" class="img-fluid" src="{!! asset('assets/images/data/admins/'.auth('admin')->user()->id.'/'.auth('admin')->user()->image) !!}" alt="image">
                         @else
-                            <img class="img-fluid" src="{!! asset('assets/images/img_option/img-1.jpg') !!}" alt="image">
+                            <img style="height: 500px" class="img-fluid" src="{!! asset('assets/images/img_option/img-1.jpg') !!}" alt="image">
                     @endif
                 </div>
                 <div class="blog-info text-black">

@@ -1,4 +1,13 @@
-@extends('users.layout')
+@extends('cashiers.layout')
+@push('header')
+@include('layouts.header',['title'=>'تعديل البيانات الشخصية'])
+@endpush
 @section('section')
-    <livewire:user.settings />
+<section class="order-content">
+    <div class="heading-title">
+        <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> تغيير البيانات الشخصية  </h2>
+
+        @livewire('cashier.settings')
+    </div>
+</section>
 @endsection

@@ -18,6 +18,9 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link @if(request()->routeIs('admin.gallary*')) active @endif"  href="{{ route('admin.gallary.index') }}" >إدارة معرض الصور</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link @if(request()->routeIs('admin.slider*')) active @endif"  href="{{ route('admin.slider.index') }}" >إدارة السلايدرز</a>
         </li>
 
@@ -26,7 +29,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link @if(request()->routeIs('admin.dashboard')) active @endif"  href="{{ route('admin.dashboard') }}" >جميع الأوردرات</a>
+            <a class="nav-link @if(request()->routeIs('admin.orders')) active @endif"  href="{{ route('admin.orders') }}" >جميع الأوردرات</a>
         </li>
 
         <li class="nav-item">
