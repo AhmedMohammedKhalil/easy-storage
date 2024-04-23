@@ -15,7 +15,7 @@
     </style>
 @endpush
 @push('header')
-@include('layouts.header',['title'=>'جميع الأوردرات'])
+@include('layouts.header',['title'=>'جميع الطلبات'])
 @endpush
 @section('section')
         <div class="page-area pro-content pt-0" >

@@ -3,11 +3,11 @@
 
 
         <li class="nav-item">
-            <a class="nav-link @if(request()->routeIs('cashier.purchases')) active @endif"  href="{{ route('cashier.purchases') }}" >مشترياتى</a>
+            <a class="nav-link @if(request()->routeIs('cashier.purchases')) active @endif"  href="{{ route('cashier.purchases') }}" >الفاتورة الحالية</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link @if(request()->routeIs('cashier.orders')) active @endif"  href="{{ route('cashier.orders') }}" >جميع الأوردرات</a>
+            <a class="nav-link @if(request()->routeIs('cashier.orders')) active @endif"  href="{{ route('cashier.orders') }}" >جميع الطلبات</a>
         </li>
 
         <li class="nav-item">

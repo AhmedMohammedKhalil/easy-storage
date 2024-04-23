@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-12">
-        <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> جميع الأوردرات </h2>
+        <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> جميع الطلبات </h2>
     </div>
     @if($orders == null)
         <div class="col-12 col-sm-12 justify-content-center" style="margin-top: 30px">
-            <h3 class="text-center">لا يوجد أوردرات</h3>
+            <h3 class="text-center">لا يوجد طلبات</h3>
         </div>
     @else
     <div class="col-12 col-sm-12 cart-page-two cart-area">

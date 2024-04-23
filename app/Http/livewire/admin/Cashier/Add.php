@@ -34,7 +34,7 @@ class Add extends Component
         'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
         'unique' => 'هذا الايميل مسجل فى الموقع',
         'same' => 'لابد ان يكون الباسورد متطابق',
-        'image' => 'لابد ان يكون المف صورة',
+        'image' => 'لابد ان يكون الملف صورة',
         'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
         'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
         'regex' => 'لا بد ان يكون الحقل ارقام فقط',
@@ -57,6 +57,7 @@ class Add extends Component
     public function add()
     {
         $validatedata = $this->validate();
+        $this->updatedImage();
         $imagename = $this->image->getClientOriginalName();
         $cashier = Cashier::create(array_merge($validatedata, [
             'image' => $imagename,

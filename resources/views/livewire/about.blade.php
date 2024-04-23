@@ -1,4 +1,4 @@
-<form wire:submit.prevent='sendMessage'>
+<form wire:submit.prevent='add'>
     @if (session()->has('error'))
         <div class="alert alert-danger">
             {{ session('error') }}

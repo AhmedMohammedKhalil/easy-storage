@@ -150,7 +150,7 @@
                                         @endauth
                                         @auth('cashier')
                                         <a class="dropdown-item" href="{{ route('cashier.profile') }}">البروفايل</a>
-                                        <a class="dropdown-item" href="{{ route('cashier.purchases') }}">مشترياتى</a>
+                                        <a class="dropdown-item" href="{{ route('cashier.purchases') }}">الفاتورة الحالية</a>
                                         <a class="dropdown-item" href="{{ route('cashier.logout') }}">خروج</a>
                                         @endauth
                                     </div>

@@ -29,7 +29,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link @if(request()->routeIs('admin.orders')) active @endif"  href="{{ route('admin.orders') }}" >جميع الأوردرات</a>
+            <a class="nav-link @if(request()->routeIs('admin.orders')) active @endif"  href="{{ route('admin.orders') }}" >جميع الطلبات</a>
         </li>
 
         <li class="nav-item">

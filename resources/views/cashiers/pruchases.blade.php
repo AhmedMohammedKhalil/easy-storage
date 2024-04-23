@@ -15,7 +15,7 @@
     </style>
 @endpush
 @push('header')
-@include('layouts.header',['title'=>'جميع المشتريات'])
+@include('layouts.header',['title'=>'الفاتورة الحالية'])
 @endpush
 @section('section')
 
@@ -23,11 +23,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> جميع المشتريات </h2>
+                <h2 class="text-center" style="font-weight:bold;margin-bottom:30px">الفاتورة الحالية</h2>
             </div>
             @if(count($order->products) == 0)
                 <div class="col-12 col-sm-12 justify-content-center" style="margin-top: 30px">
-                    <h3 class="text-center">لا يوجد مشتريات</h3>
+                    <h3 class="text-center">لا يوجد منتجات</h3>
                 </div>
             @else
             <div class="col-12 col-sm-12 cart-page-two cart-area">
