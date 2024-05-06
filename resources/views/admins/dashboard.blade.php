@@ -30,7 +30,7 @@
                     <div class="box-spaeial text-center bounce_button">
                         <img src="{{ asset('assets/images/data/dashboard/categories.png') }}" style="height: 100px" class="img-fluid" alt="...">
                         <h5 class="text-body my-3">
-                            انواع المنتجات
+                            الفئات
                         </h5>
                         <p>{{ $category_count }}</p>
                     </div>

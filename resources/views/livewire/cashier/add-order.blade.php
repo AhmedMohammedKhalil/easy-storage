@@ -21,7 +21,7 @@
             </span>
         </div>
         <div class="icons">
-            <button class="icon btn-secondary btn" title="اضافة الى مشترياتى" onclick="notificationCart();"
+            <button class="icon btn-secondary btn" title="اضافة الى طلباتى" onclick="notificationCart();"
                 tabindex="0">
                 <i class="fas fa-shopping-bag" style="display: block !important"></i>
             </button>

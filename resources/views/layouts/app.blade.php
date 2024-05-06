@@ -129,6 +129,15 @@
                         </ul>
                         @endunless
                         @if(auth('admin')->check() || auth('cashier')->check())
+                        @if(auth('cashier')->check())
+                            <ul class="navbar-nav" style="margin-left: 10px">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('cashier.purchases') }}">
+                                        الفاتورة الحالية
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
                             <ul class="pro-header-right-options">
                                 <li class="dropdown profile-tags list-icon">
                                     <button class="btn icon dropdown-toggle" type="button" id="dropdownAccountButton42"
@@ -150,7 +159,6 @@
                                         @endauth
                                         @auth('cashier')
                                         <a class="dropdown-item" href="{{ route('cashier.profile') }}">البروفايل</a>
-                                        <a class="dropdown-item" href="{{ route('cashier.purchases') }}">الفاتورة الحالية</a>
                                         <a class="dropdown-item" href="{{ route('cashier.logout') }}">خروج</a>
                                         @endauth
                                     </div>

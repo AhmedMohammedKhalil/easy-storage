@@ -22,7 +22,7 @@
             <div class="input-group select-control mb-3">
 
                 <select  name="category_id" wire:model.lazy='category_id' class="form-control" id="inlineFormInputGroup4">
-                    <option value="0">اختر نوع المنتج</option>
+                    <option value="0">اختر فئة المنتج</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" @if($category->id == $category_id) selected @endif>{{ $category->name }}</option>
                     @endforeach

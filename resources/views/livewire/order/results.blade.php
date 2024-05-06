@@ -10,6 +10,32 @@
     <div class="col-12 col-sm-12 cart-page-two cart-area">
         <div class="row">
             <div class="col-12 col-lg-12">
+                <div class="accordian" style="margin-top: 20px">
+                    <table class="table top-table order-table">
+                        <tbody>
+                            <tr class="d-flex">
+                                <td class="col-12 col-md-3 justify-content-center">
+                                    <h2>الإسم</h2>
+                                </td>
+
+                                <td class="col-12 col-md-2 justify-content-center">
+                                    <h2>رقم الهاتف</h2>
+                                </td>
+
+                                <td class="col-12 col-md-3 justify-content-center">
+                                    <h2>عدد المنتجات</h2>
+                                </td>
+
+                                <td class="col-12 col-md-2 justify-content-center">
+                                    <h2>إجمالى السعر</h2>
+                                </td>
+
+                                <td class="col-12 col-md-2 justify-content-around">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 @foreach ($orders as $order)
                 <div class="accordian" style="margin-top: 20px">
                     <table class="table top-table order-table">
@@ -28,7 +54,7 @@
                                 </td>
 
                                 <td class="col-12 col-md-2 justify-content-center">
-                                    <h2>{!! nl2br( $order->total_price ) !!}</h2>
+                                    <h2>{!! nl2br( $order->total_price ) !!} دينار</h2>
                                 </td>
 
                                 <td class="col-12 col-md-2 justify-content-around">
@@ -58,7 +84,7 @@
                                     </td>
 
                                     <td class="col-12 col-md-2 justify-content-center">
-                                        <h2>{!! nl2br( $product->price ) !!}</h2>
+                                        <h2>{!! nl2br( $product->price ) !!} دينار</h2>
                                         </td>
 
                                     <td class="col-12 col-md-2 justify-content-center">
@@ -66,7 +92,7 @@
                                         </td>
 
                                     <td class="col-12 col-md-2 justify-content-center">
-                                        <h2>{!! nl2br( $product->pivot->total ) !!}</h2>
+                                        <h2>{!! nl2br( $product->pivot->total ) !!} دينار</h2>
                                     </td>
                                 </tr>
                             </tbody>

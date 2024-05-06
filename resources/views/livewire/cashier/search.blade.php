@@ -6,7 +6,7 @@
                 <select  name="type" wire:model.lazy='type' class="form-control" id="type">
                     <option value="1" selected>كود المنتج</option>
                     <option value="2">اسم المنتج</option>
-                    <option value="3">نوع المنتج</option>
+                    <option value="3">فئة المنتج</option>
                 </select>
             </div>
         </div>

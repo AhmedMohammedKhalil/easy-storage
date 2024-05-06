@@ -2,9 +2,9 @@
     <ul class="nav flex-column nav-pills mb-3" id="pills-tab">
 
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link @if(request()->routeIs('cashier.purchases')) active @endif"  href="{{ route('cashier.purchases') }}" >الفاتورة الحالية</a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link @if(request()->routeIs('cashier.orders')) active @endif"  href="{{ route('cashier.orders') }}" >جميع الطلبات</a>

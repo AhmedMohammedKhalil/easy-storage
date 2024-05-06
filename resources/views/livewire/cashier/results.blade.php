@@ -29,7 +29,7 @@
                             المخذون : <h4 style="display: inline-block !important">{{ $product->quantity }}</h4>
                         </div>
                         <div class="pro-price">
-                            <ins>{{ $product->price }}</ins>
+                            <ins>{{ $product->price }} دينار كويتى</ins>
                         </div>
 
                     </div>
@@ -65,11 +65,11 @@
                                             <h3>{{ $product->name }}</h3>
 
                                             <div class="pro-price">
-                                                <ins>{{ $product->price }}</ins>
+                                                <ins>{{ $product->price }} دينار كويتى</ins>
                                             </div>
                                             <div class="pro-info">
                                                 <div class="pro-single-info"><b>كود المنتج :</b><span>{{ $product->code }}</span></div>
-                                                <div class="pro-single-info"><b>نوع المنتج :</b><span>{{ $product->category->name }}</span></div>
+                                                <div class="pro-single-info"><b>فئة المنتج :</b><span>{{ $product->category->name }}</span></div>
                                                 <div class="pro-single-info"><b>حالة المنتج :</b><span>@if($product->quantity == 0) غير متاح @else متاح @endif</span></div>
                                                 <div class="pro-single-info"><b>الكمية المتاحة:</b><span>{{ $product->quantity }}</span></div>
                                                 <div class="pro-single-info"><b>الكمية المباعة :</b><span>{{ $product->quantity_sold }}</span></div>

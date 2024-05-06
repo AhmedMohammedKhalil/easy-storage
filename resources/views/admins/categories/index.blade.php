@@ -8,15 +8,15 @@
     </style>
 @endpush
 @push('header')
-@include('layouts.header',['title'=>'إدارة انواع المنتجات'])
+@include('layouts.header',['title'=>'إدارة الفئات '])
 @endpush
 @section('section')
 <section class="order-content">
-    <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> جميع الأنواع </h2>
+    <h2 class="text-center" style="font-weight:bold;margin-bottom:30px"> جميع الفئات </h2>
     <div class="col-12 col-sm-12 justify-content-center btn-cont">
         <div class="row">
             <a href="{{ route('admin.category.create') }}"
-                class="btn btn-secondary">إضافة نوع جديد</a>
+                class="btn btn-secondary">إضافة فئة جديدة</a>
         </div>
     </div>
     @foreach ($categories as $category)
@@ -44,7 +44,7 @@
     @endforeach
     @if(count($categories) == 0)
     <div class="col-12 col-sm-12 justify-content-center" style="margin-top: 30px">
-        <h3 class="text-center">لا يوجد انواع منتجات</h3>
+        <h3 class="text-center">لا يوجد فئات</h3>
     </div>
     @endif
 

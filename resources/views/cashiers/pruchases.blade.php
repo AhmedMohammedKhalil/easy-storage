@@ -50,7 +50,7 @@
                                         </td>
 
                                         <td class="col-12 col-md-2 justify-content-center">
-                                            <h2>{!! nl2br( $product->price ) !!}</h2>
+                                            <h2>{!! nl2br( $product->price ) !!} دينار</h2>
                                             </td>
 
                                         <td class="col-12 col-md-2 justify-content-center">
@@ -58,7 +58,7 @@
                                             </td>
 
                                         <td class="col-12 col-md-2 justify-content-center">
-                                            <h2>{!! nl2br( $product->pivot->total ) !!}</h2>
+                                            <h2>{!! nl2br( $product->pivot->total ) !!} دينار</h2>
                                             </td>
                                         <td class="col-12 col-md-2 justify-content-around">
                                             <a style="padding:0 10px"
@@ -101,7 +101,7 @@
 
                                                         <tr class="d-flex align-items-center">
                                                             <td class="col-6 col-md-6">
-                                                                <strong>نوع المنتج</strong></td>
+                                                                <strong>فئة المنتج</strong></td>
                                                             <td class="col-6 col-md-6">
                                                                 <p style="margin-bottom: 0">{{ $product->category->name }}</p>
                                                             </td>
@@ -117,7 +117,7 @@
                                                                 <strong>سعر المنتج</strong>
                                                             </td>
                                                             <td class="col-6 col-md-6">
-                                                                <p style="margin-bottom: 0">{{ $product->price }}</p>
+                                                                <p style="margin-bottom: 0">{{ $product->price }} دينار كويتى</p>
                                                             </td>
                                                         </tr>
                                                         <tr class="d-flex align-items-center">
@@ -155,12 +155,12 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="summery">
-                            <h3 class="text-center">اجمالى الفاتورة</h3>
+                            <h3 class="text-center">اجمالى السعر</h3>
                             <table class="table right-table">
                                 <tbody>
                                     <tr>
                                         <th>الأجمالى</th>
-                                        <td class="justify-content-end d-flex">{{ $order->total_price }}</td>
+                                        <td class="justify-content-end d-flex">{{ $order->total_price }} دينار كويتى</td>
 
                                     </tr>
                                 </tbody>

@@ -42,7 +42,7 @@
                      </td>
 
                      <td class="col-12 col-md-2">
-                        <h2>{!! nl2br( $product->price ) !!}</h2>
+                        <h2>{!! nl2br( $product->price ) !!} دينار</h2>
                      </td>
                     <td class="col-12 col-md-2 justify-content-around">
                         <a style="padding:0 10px"
@@ -91,7 +91,7 @@
 
                                     <tr class="d-flex align-items-center">
                                         <td class="col-6 col-md-6">
-                                            <strong>نوع المنتج</strong></td>
+                                            <strong>فئة المنتج</strong></td>
                                         <td class="col-6 col-md-6">
                                             <p style="margin-bottom: 0">{{ $product->category->name }}</p>
                                         </td>
@@ -107,7 +107,7 @@
                                             <strong>سعر المنتج</strong>
                                         </td>
                                         <td class="col-6 col-md-6">
-                                            <p style="margin-bottom: 0">{{ $product->price }}</p>
+                                            <p style="margin-bottom: 0">{{ $product->price }} دينار كويتى</p>
                                         </td>
                                     </tr>
                                     <tr class="d-flex align-items-center">
@@ -144,7 +144,7 @@
 
     @if(count($categories) == 0)
     <div class="col-12 col-sm-12 justify-content-center" style="margin-top: 30px">
-        <h3 class="text-center">لا يوجد انواع منتجات يجب اضافة الأنواع اولاً</h3>
+        <h3 class="text-center">لا يوجد فئات  يجب اضافة الفئات اولاً</h3>
     </div>
     @endif
 

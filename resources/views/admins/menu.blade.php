@@ -7,7 +7,7 @@
             <a class="nav-link @if(request()->routeIs('admin.cashier*')) active @endif"  href="{{ route('admin.cashier.index') }}" >إدارة المسؤلين عن الكاشير</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if(request()->routeIs('admin.category*')) active @endif"  href="{{ route('admin.category.index') }}" >إدارة انواع المنتجات</a>
+            <a class="nav-link @if(request()->routeIs('admin.category*')) active @endif"  href="{{ route('admin.category.index') }}" >إدارة الفئات</a>
         </li>
         <li class="nav-item">
             <a class="nav-link @if(request()->routeIs('admin.product*')) active @endif"  href="{{ route('admin.product.index') }}" >إدارة المنتجات</a>
