@@ -54,7 +54,7 @@
                     <div class="box-spaeial text-center bounce_button">
                         <img src="{{ asset('assets/images/data/dashboard/orders.png') }}" style="height: 100px" class="img-fluid" alt="...">
                         <h5 class="text-body my-3">
-                            الأوردرات
+                            الطلبات
                         </h5>
                         <p>{{ $order_count }}</p>
                     </div>
